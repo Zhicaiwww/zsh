@@ -1,0 +1,16 @@
+#!/bin/bash
+num=$1
+memory=$2
+free_gpus=$(nvidia-smi --query-gpu=index,memory.free --format=csv,noheader | awk -F "," -v mem=$memory '$2 ~ /MiB/ && $2 + 0 > mem {print $1}' | tr "\n" "," | sed 's/,$//')
+
+# 判断空余显卡数量是否满足需求
+if [ $(echo $free_gpus | tr "," "\n" | wc -l) -lt $num ]; then
+    # 如果不满足，中断程序并提示错误信息
+    echo "没有足够的空余显卡，请稍后再试"
+    exit 1
+else
+    # 如果满足，截取所需数量的空余显卡编号，并赋值给环境变量CUDA_VISIBLE_DEVICES
+    CUDA_VISIBLE_DEVICES=$(echo $free_gpus | cut -d "," -f 1-$num)
+    export CUDA_VISIBLE_DEVICES
+    echo CUDA_VISIBLE_DEVICES $CUDA_VISIBLE_DEVICES
+fi

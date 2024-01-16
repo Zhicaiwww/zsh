@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# 定义需要监视的PID
+target_pid=$1
+
+# 定义要运行的命令
+command_to_run=$2
+
+# 定义检查的时间间隔（秒）
+check_interval=3
+# 循环检查进程状态
+while true; do
+    # 使用ps命令检查PID是否存在
+    ps -p $target_pid > /dev/null 2>&1
+    
+    # 检查ps命令的退出状态
+    if [ $? -eq 1 ]; then
+        # 进程不存在，运行指定命令
+        echo "进程 $target_pid 不存在，运行命令: $command_to_run"
+        bash -c "$command_to_run"
+        
+        # 退出循环
+        break
+    else
+        # 进程仍然存在，等待一段时间后再次检查
+        sleep $check_interval
+    fi
+done

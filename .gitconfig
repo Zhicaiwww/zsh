@@ -1,0 +1,14 @@
+[user]
+	email = wangzhic@mail.ustc.edu.cn
+	name = zhicaiWWW
+[maintenance]
+	repo = /home/zhicai/Repos/znap
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[http]
+	proxy = http://localhost:8890
+[https]
+	proxy = http://localhost:8890

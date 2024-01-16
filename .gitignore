@@ -1,0 +1,8 @@
+local/*
+.local/*
+.config/*
+.zcompdump*
+.vscode*
+*.out
+*.mmdb
+.conda/*

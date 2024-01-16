@@ -1,0 +1,15 @@
+# HSTS 1.0 Known Hosts database for GNU Wget.
+# Edit at your own risk.
+# <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+www.dropbox.com	0	1	1692630835	31536000
+www.robots.ox.ac.uk	0	0	1690628261	300
+update.code.visualstudio.com	0	1	1703487442	31536000
+raw.githubusercontent.com	0	0	1685184751	31536000
+developer.download.nvidia.cn	0	0	1704964965	31536000
+ucfe914256ec573a3eb3fbcdd292.dl.dropboxusercontent.com	0	1	1692630747	31536000
+zenodo.org	0	1	1698678858	31556926
+finance.ustc.edu.cn	0	0	1685698142	15769000
+huggingface.co	0	1	1677863065	31536000
+uc1ba9d0412fcc9c97ec3a367a0c.dl.dropboxusercontent.com	0	1	1692630827	31536000
+github.com	0	1	1691031479	31536000
+uc5da9ef4dbc2c54b51eec2feff5.dl.dropboxusercontent.com	0	1	1692630838	31536000
